@@ -4,7 +4,7 @@ import { renderStepConfig } from "./view.js";
 
 export const registerRandomStringStep = function (app) {
   // Register step config action
-  console.log(`⚙️  Registering ${STEP_CALLBACK_ID}`)
+  app.logger.info(`⚙️  Registering ${STEP_CALLBACK_ID}`)
   app.action(
     {
       type: "workflow_step_edit",
@@ -131,7 +131,7 @@ export const registerRandomStringStep = function (app) {
         },
       });
 
-      app.logger.info("step completed", randomString || "");
+      app.logger.info("step completed", STEP_CALLBACK_ID, randomString || "");
     } catch (e) {
       app.logger.error("Error completing step", e.message, randomString || "");
     }
